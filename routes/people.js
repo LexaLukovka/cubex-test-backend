@@ -4,5 +4,7 @@ const PeopleController = require('../app/Controllers/PeopleController')
 
 router.get('/people', PeopleController.index)
 router.post('/people', PeopleController.store)
+router.get('/people/:id', PeopleController.find)
+
 
 module.exports = router

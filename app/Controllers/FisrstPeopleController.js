@@ -1,8 +1,10 @@
 const People = require('../Models/People')
 
 class FirstPeopleController {
-  async store(request, response) {
-    request.body.people && await request.body.people.forEach(async (person) => {
+  async store(people) {
+    const peopleBd = await People.find()
+
+    peopleBd.length === 0 && await people.forEach(async (person) => {
       const newPeople = new People({
         firstName: person.general.firstName,
         lastName: person.general.lastName,
@@ -16,7 +18,7 @@ class FirstPeopleController {
       await newPeople.save()
     })
 
-    return response.json('First people created')
+    return
   }
 }
 

@@ -3,7 +3,12 @@ const PeopleValidator = require('../Validators/People')
 const { validate } = require('../Validators/Validator')
 
 class PeopleController {
-  async index(request, response) {}
+  async index(request, response) {
+    let people = await People.find()
+    people = people.reverse()
+
+    return response.json({ people })
+  }
 
   async store(request, response) {
     const [err, data] = await validate(request.body, PeopleValidator)
@@ -24,6 +29,12 @@ class PeopleController {
     await newPeople.save()
 
     return response.json(`${data.firstName} ${data.lastName} created`)
+  }
+
+  async find(request, response) {
+    const person = await People.findOne({ _id: request.params.id })
+
+    return response.json({ person })
   }
 }
 
