@@ -8,7 +8,9 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const passport = require('passport')
 
+const authRoutes = require('./routes/auth')
 const peopleRoutes = require('./routes/people')
+const firstPeopleRoutes = require('./routes/firstPeople')
 
 const app = express()
 
@@ -31,7 +33,9 @@ app.use('/uploads', express.static('uploads'))
 app.use(morgan('dev'))
 app.use(passport.initialize())
 
+app.use('/', authRoutes)
 app.use('/', peopleRoutes)
+app.use('/', firstPeopleRoutes)
 
 
 app.use(function (req, res, next) {
