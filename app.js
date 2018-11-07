@@ -7,10 +7,13 @@ const fileUpload = require('express-fileupload')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const passport = require('passport')
+const people = require('./people')
+
+const FisrstPeopleController = require('./app/Controllers/FisrstPeopleController')
 
 const authRoutes = require('./routes/auth')
 const peopleRoutes = require('./routes/people')
-const firstPeopleRoutes = require('./routes/firstPeople')
+// const firstPeopleRoutes = require('./routes/firstPeople')
 
 const app = express()
 
@@ -35,7 +38,7 @@ app.use(passport.initialize())
 
 app.use('/', authRoutes)
 app.use('/', peopleRoutes)
-app.use('/', firstPeopleRoutes)
+// app.use('/', firstPeopleRoutes)
 
 
 app.use(function (req, res, next) {
@@ -50,6 +53,8 @@ app.use(function (err, req, res) {
 
   res.status(err.status || 500)
   res.render('error')
-})
+});
+
+(function() {FisrstPeopleController.store(people)}())
 
 module.exports = app
