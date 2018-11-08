@@ -34,6 +34,18 @@ class PeopleController {
 
     return response.json({ person })
   }
+
+  async destroy(request, response) {
+    const data = request.params
+
+    const person = await People.findOne({ _id: data.id })
+
+    const name = `${person.firstName} ${person.lastName}`
+
+    await person.delete()
+
+    return response.json(`${name} deleted`)
+  }
 }
 
 module.exports = new PeopleController()

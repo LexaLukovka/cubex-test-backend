@@ -1,3 +1,5 @@
+Test task Cubex
+
 ## Getting started Backend
 Close your project in *http://localhost:3333/*
 
@@ -19,4 +21,3 @@ Go to *http://localhost:3000/*
 
 Go to *F12 => Application => Clear storage => Clear site data*
 
-Add can drag group card in board

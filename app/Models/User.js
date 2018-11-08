@@ -14,15 +14,11 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: false,
+    required: true,
   },
-  provider: {
+  phone: {
     type: String,
-    required: false,
-  },
-  provider_token: {
-    type: String,
-    required: false,
+    required: true,
   },
 })
 
