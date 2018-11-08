@@ -3,7 +3,7 @@ module.exports = class People {
     return {
       firstName: 'required',
       lastName: 'required',
-      email: 'required|email|email_exists',
+      email: 'required|email',
       phone: 'required',
       title: 'required',
       company: 'required',
@@ -12,7 +12,6 @@ module.exports = class People {
 
   get messages() {
     return {
-      'email.email_exists': 'Пользователь с такой почтой на найден',
       'email.required': 'Введите email пожалуйста',
       'email.email': 'Неправильный email',
       'firstName.required': 'Введите firstName пожалуйста',
