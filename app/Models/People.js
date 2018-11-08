@@ -16,7 +16,7 @@ const PeopleSchema = new Schema({
     required: true,
   },
   avatar: {
-    type: String,
+    type: Array,
     required: false,
   },
   phone: {

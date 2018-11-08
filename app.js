@@ -13,7 +13,7 @@ const FisrstPeopleController = require('./app/Controllers/FisrstPeopleController
 
 const authRoutes = require('./routes/auth')
 const peopleRoutes = require('./routes/people')
-// const firstPeopleRoutes = require('./routes/firstPeople')
+const uploadRoutes = require('./routes/upload')
 
 const app = express()
 
@@ -38,7 +38,7 @@ app.use(passport.initialize())
 
 app.use('/', authRoutes)
 app.use('/', peopleRoutes)
-// app.use('/', firstPeopleRoutes)
+app.use('/', uploadRoutes)
 
 
 app.use(function (req, res, next) {

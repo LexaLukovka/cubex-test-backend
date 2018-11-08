@@ -9,7 +9,7 @@ class FirstPeopleController {
         firstName: person.general.firstName,
         lastName: person.general.lastName,
         email: person.contact.email,
-        avatar: person.general.avatar || null,
+        avatar: [person.general.avatar] || null,
         phone: person.contact.phone,
         title: person.job.title,
         company: person.job.company,
@@ -17,6 +17,8 @@ class FirstPeopleController {
 
       await newPeople.save()
     })
+
+    peopleBd.length === 0 && console.log('First people created')
 
     return
   }

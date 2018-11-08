@@ -14,8 +14,6 @@ class PeopleController {
     const [err, data] = await validate(request.body, PeopleValidator)
     if (err) return response.status(401).json(err)
 
-    console.log(data)
-
     const newPeople = new People({
       firstName: data.firstName,
       lastName: data.lastName,
