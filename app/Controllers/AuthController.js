@@ -24,6 +24,7 @@ class AuthController {
     const newUser = new User({
       name: data.name,
       email: data.email,
+      phone: data.phone,
       password: data.password,
     })
 
